@@ -1,0 +1,33 @@
+.products-homepage{
+    width: 350px;
+    height: 400px;
+    margin: 0, 30, 0, 30;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+}
+
+.navbar {
+    background-color: black;
+    
+}
+
+a:link {
+    color: white;
+  }
+  
+  /* visited link */
+  a:visited {
+    color: white;
+  }
+  
+  /* mouse over link */
+  a:hover {
+    color: hotpink;
+  }
+  
+  /* selected link */
+  a:active {
+    color: white;
+  }
+
