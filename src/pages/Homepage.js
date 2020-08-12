@@ -14,6 +14,7 @@ export default function Homepage() {
     const [sortBy, setSortBy] = useState(null) // "price" || "amountOfReviews";
     console.log('sortBy', sortBy)
 
+
     console.log(sortBy) // price || amountOfReviews
     const { data, loading, error } = useQuery(gql`
     query {
@@ -21,6 +22,7 @@ export default function Homepage() {
             id
             name
             imageUrl
+       
         }
             }
         `);
@@ -30,12 +32,15 @@ export default function Homepage() {
     if (!data) return <p>Not found</p>;
 
     //Sorting-2nd part 
-    if (sortBy === "price") {
-        data.allProducts.sort(a, b => a.price - b.price)
+    function compare(a, b) {
+
+        if (data === "price") {
+            data.sort(a, b => a.price - b.price)
+        } else if (data === "reviews") {
+            data.sort(a, b => a.review.length - b.review.length)
+        }
     }
-    if (sortBy === "reviews") {
-        data.allProducts.sort(a, b => a.allProducts.reviews.length - b.allProducts.reviews.length)
-    }
+
 
     function handleClick(e) {
         console.log('event', e);
