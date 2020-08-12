@@ -1,15 +1,24 @@
 .products-homepage{
     width: 350px;
     height: 400px;
-    margin: 0, 30, 0, 30;
-    display: flex;
+    margin: 50px;
+    display: inline-block;
+    grid-template-rows: auto 1fr auto;
     flex-wrap: wrap;
-    padding: 0 4px;
+    padding: 30px;
+    
+  
 }
 
 .navbar {
     background-color: black;
+    height: 285px;
     
+}
+.h1-homepage {
+  color: white;
+  margin-left: 20px;
+
 }
 
 a:link {

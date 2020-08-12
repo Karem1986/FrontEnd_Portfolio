@@ -1,8 +1,12 @@
 import React from 'react'
 import { useQuery, gql } from '@apollo/client'
+import { useHistory, Link } from "react-router-dom";
 
 
 export default function Homepage() {
+    const history = useHistory();
+
+
     // const res = useQuery(gql`
     //     query {
     //         allProducts {
@@ -27,6 +31,18 @@ export default function Homepage() {
     if (error) return <p>ERROR</p>;
     if (!data) return <p>Not found</p>;
 
+    function goToProductDetailpage(event) {
+        event.preventDefault()
+
+        history.push("/productpage/:id?")
+        console.log('test target value', event.target.value)
+    }
+
+    function handleClick(e, data) {
+        // access to e.target here
+        history.push("/productpage/:id?")
+        console.log('data', data);
+    }
 
     return (
         <div>
@@ -35,7 +51,11 @@ export default function Homepage() {
                 return (
                     <div key={item.id}>
                         {item.name}
-                        <img class="products-homepage" src={item.imageUrl} alt="POLshop.com products"></img>
+
+                        <Link><img id={item.id} className="products-homepage" src={item.imageUrl}
+                            alt="POLshop.com products" onClick={((e) => handleClick(e, data))}>
+
+                        </img></Link>
 
                     </div>
                 )
