@@ -33,7 +33,7 @@ function App() {
           <NavBar />
           <Switch>
             <Route path="/productpage/:id?" component={Productdetail} />
-            <Route path="/home/productpage" component={Homepage} />
+            <Route exact path="/" component={Homepage} />
           </Switch>
 
           <Homepage />

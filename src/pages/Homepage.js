@@ -1,26 +1,14 @@
 import React from 'react'
 import { useQuery, gql } from '@apollo/client'
-import { useHistory, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 export default function Homepage() {
-    const history = useHistory();
-
-
-    // const res = useQuery(gql`
-    //     query {
-    //         allProducts {
-    //             name
-    //             imageUrl
-    //         }
-    //             }
-    //         `
-    // )
-    // console.log('res', res)
 
     const { data, loading, error } = useQuery(gql`
     query {
         allProducts {
+            id
             name
             imageUrl
         }
@@ -31,17 +19,9 @@ export default function Homepage() {
     if (error) return <p>ERROR</p>;
     if (!data) return <p>Not found</p>;
 
-    function goToProductDetailpage(event) {
-        event.preventDefault()
 
-        history.push("/productpage/:id?")
-        console.log('test target value', event.target.value)
-    }
-
-    function handleClick(e, data) {
-        // access to e.target here
-        history.push("/productpage/:id?")
-        console.log('data', data);
+    function handleClick(e) {
+        console.log('event', e);
     }
 
     return (
@@ -52,8 +32,8 @@ export default function Homepage() {
                     <div key={item.id}>
                         {item.name}
 
-                        <Link><img id={item.id} className="products-homepage" src={item.imageUrl}
-                            alt="POLshop.com products" onClick={((e) => handleClick(e, data))}>
+                        <Link to={`/productpage/${item.id}`}><img id={item.id} className="products-homepage" src={item.imageUrl}
+                            alt="POLshop.com products" onClick={((e) => handleClick(e))}>
 
                         </img></Link>
 
