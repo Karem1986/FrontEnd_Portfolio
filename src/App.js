@@ -35,8 +35,6 @@ function App() {
             <Route path="/productpage/:id?" component={Productdetail} />
             <Route exact path="/" component={Homepage} />
           </Switch>
-
-          <Homepage />
         </div>
       </Router>
     </ApolloProvider>
