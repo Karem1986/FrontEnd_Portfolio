@@ -35,74 +35,70 @@ export default function Homepage() {
         `);
 
 
-    //Sorting-2nd part 
-    // function compare(type) {
-    //     if (data) {
-    //         if (type === "price") {
-    //             data.allProducts.sort((a, b) => a.price - b.price)
-    //             setSortedProducts(data.allProducts)
-    //         } else if (type === "reviews") {
-    //             data.allProducts.sort((a, b) => a.review.length - b.review.length)
-    //             setSortedProducts(data.allProducts)
-    //         }
-    //         console.log('data', data.allProducts)
-    //     }
-    // }
-
-    // useEffect(() => {
-    //     if (data) {
-    //         setSortedProducts(data.allProducts)
-    //     }
-
-    // }, [data])
-
-    // useEffect(() => {
-    //     compare(sortBy)
-
-    // }, [sortBy])
-
     if (loading) return <h2>Hello</h2>;
     if (error) return <p>ERROR</p>;
     if (!data) return <p>Not found</p>;
 
-    if (sortBy === "price") {
-        data.allProducts.sort((a, b) => a.price > b.price ? 1 : -1)
+    function sortedData() {
+
+        if (sortBy === "price") {
+            console.log('sort by price')
+            return [...data.allProducts].sort((a, b) => a.price > b.price ? 1 : -1)
+
+        }
+        else if (sortBy === "review") {
+            console.log("sort by reviews")
+            return [...data.allProducts].sort((a, b) => a.review.length > b.review.length ? 1 : -1)
+
+        }
+        else {
+            return data.allProducts
+        }
     }
-    if (sortBy === "reviews") {
-        data.allProducts.sort((a, b) => a.reviews.length > b.reviews.length ? 1 : -1)
-    }
+    console.log('data', data)
+
 
     function handleClick(e) {
         console.log('event', e);
     }
 
     return (
-        <div>
-            {data.allProducts.map(item => {
-                return (
-                    <div key={item.id}>
-                        {item.name}
+        <div style={{ display: "flex" }}>
+            <div>
+                <h2>
+                    <select
+                        style={{ backgroundColor: "black", color: 'white', marginTop: 40 }}
+                        className="sorting-homepage"
+                        placeholder="sortybypriceandreviews"
+                        value={sortBy}
+                        onChange={e => setSortBy(e.target.value)}
+                    >
+                        <option value="">Sort by price and reviews</option>
+                        <option value="price">Price</option>
+                        <option value="review">Amount of reviews</option>
+                    </select>
+                </h2>
 
-                        <Link to={`/productpage/${item.id}`}><img id={item.id} className="products-homepage" src={item.imageUrl}
-                            alt="POLshop.com products" onClick={((e) => handleClick(e))}>
 
-                        </img></Link>
+            </div>
 
-                    </div>
-                )
-            })}
+            <div style={{ display: "flex", justifyContent: "space-around", flexWrap: "wrap" }}>
+                {sortedData().map(item => {
+                    return (
+                        <div key={item.id}>
+                            {item.name}
+                            <Link to={`/productpage/${item.id}`}>
+                                <img id={item.id} className="products-homepage" src={item.imageUrl}
+                                    alt="POLshop.com products" onClick={((e) => handleClick(e))}>
+                                </img></Link>
 
-            <h2>
-                Sort by price or review
-                <select
-                    value={sortBy}
-                    onChange={e => setSortBy(e.target.value)}
-                >
-                    <option>Price</option>
-                    <option>Amount of reviews</option>
-                </select>
+                        </div>
+                    )
+                })}
 
-            </h2>
+            </div>
+
+
         </div>
     )
 

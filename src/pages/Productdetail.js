@@ -66,32 +66,37 @@ export default function Productdetail() {
     console.log('product', data)
 
     return (
-        <div>
-
-            <h2>Product name: {data.product.name}</h2>
-            <img className="single-image-product" src={data.product.imageUrl}
-                alt="POLshop.com products">
-
-            </img>
-            <h5>{data.product.review.map(item => {
-                return (
-                    <div key={item.id}>{item.title} {item.comment}</div>
-
-                )
-            })}</h5>
-
-            <form>
-                <label>
-                    Leave a review
-
-          <input type="text" id="review-form" onChange={onReview}></input>
+        <div style={{ paddingLeft: 20, paddingRight: 20 }}>
 
 
-                </label>
+            <div style={{ display: "flex", justifyContent: 'space-around' }}>
+                <div >
+                    <h2 style={{ marginBottom: 30 }} > {data.product.name}</h2>
+                    <img style={{ margin: '0 auto' }} width='600px' className="single-image-product" src={data.product.imageUrl}
+                        alt="POLshop.com products">
+                    </img>
 
-                <button onClick={sendReview}>Submit Review</button>
+                    <p style={{ width: '50%' }}>{data.product.review.map(item => {
+                        return (
+                            <div key={item.id}>{item.title} {item.comment}</div>
 
-            </form>
+                        )
+                    })}</p>
+                    <form >
+                        <p>
+                            Leave a review
+                    </p>
+
+                        <input type="text" id="review-form" onChange={onReview}></input>
+                        <button onClick={sendReview}>Submit Review</button>
+
+                    </form>
+                </div>
+                <div></div>
+            </div>
+
+
+
 
 
 
