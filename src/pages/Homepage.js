@@ -13,7 +13,7 @@ export default function Homepage() {
 
     const [sortBy, setSortBy] = useState(null)
     const [productsSorted, setSortedProducts] = useState([])
-    // "price" || "amountOfReviews";
+
     console.log('sortBy', sortBy)
 
     console.log(sortBy) // price || amountOfReviews

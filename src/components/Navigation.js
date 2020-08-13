@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import React from 'react'
 import logo from "./logo.jpg"
+import shoppingicon from "./shoppingicon.png"
 export default function NavBar() {
     return (
         <div className="navbar">
@@ -11,11 +12,11 @@ export default function NavBar() {
             <NavLink to="/signup">Signup </NavLink>
             <NavLink to="/login">Login </NavLink>
             <NavLink to="/contact">Contact </NavLink>
+            <NavLink to="/shoppingcard"><img src={shoppingicon}
+                style={{ width: 85, height: 85, display: 'inline' }}></img> </NavLink>
 
 
         </div>
     )
-
-
 
 }

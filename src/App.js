@@ -6,6 +6,8 @@ import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import './App.css';
 import Homepage from "./pages/Homepage"
 import Productdetail from "./pages/Productdetail"
+import ShoppingCart from "./components/ShoppingCart"
+
 
 const client = new ApolloClient({
   uri: 'http://localhost:4000/graphql',
@@ -32,6 +34,7 @@ function App() {
         <div className="App">
           <NavBar />
           <Switch>
+            <Route path="/shoppingcard" component={ShoppingCart} />
             <Route path="/productpage/:id?" component={Productdetail} />
             <Route exact path="/" component={Homepage} />
           </Switch>
