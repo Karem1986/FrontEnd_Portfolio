@@ -7,7 +7,6 @@ import { useDispatch } from 'react-redux';
 import { Link } from "react-router-dom"
 
 
-
 const GET_ONE_PRODUCT = gql`
     query getOneProduct($productId: Int!) {
         product(id: $productId) {
