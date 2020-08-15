@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { useQuery, gql } from '@apollo/client'
 import { Link } from "react-router-dom";
 
-
 export default function Homepage() {
 
     //Sort by price- local state 
@@ -12,7 +11,7 @@ export default function Homepage() {
     // console.log() your state "sortBy", that should change between the 2 options
 
     const [sortBy, setSortBy] = useState(null)
-    const [productsSorted, setSortedProducts] = useState([])
+
 
     console.log('sortBy', sortBy)
 

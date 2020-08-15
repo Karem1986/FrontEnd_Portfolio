@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useQuery, gql } from '@apollo/client'
 import { useParams } from 'react-router-dom';
 import { useMutation } from "@apollo/react-hooks";
 import { Shoppingcard } from '../StoreRedux/actions';
 import { useDispatch } from 'react-redux';
-import { Link } from "react-router-dom"
-
 
 const GET_ONE_PRODUCT = gql`
     query getOneProduct($productId: Int!) {
@@ -72,6 +70,7 @@ export default function Productdetail() {
 
     //Here  i get the product: 
     const { data, loading, error } = useQuery(GET_ONE_PRODUCT, { variables: { productId: parseInt(productId) } });
+    console.log('dataProductdetail', data)
     if (loading) return <h2>Hello</h2>;
     if (error) return <p>ERROR</p>;
     if (!data) return <p>Not found</p>;

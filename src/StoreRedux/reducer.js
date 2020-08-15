@@ -29,10 +29,14 @@ export default function shoppingcartReducer(state = initialState, action) {
                 // you need to return at the end something.
                 // exists.quantity += 1
                 // exists.id = productId
+                console.log('test', updatedShoppingCart)
                 return updatedShoppingCart
 
 
-            } else {
+            }
+            else {
+                console.log('test2', ...state,
+                    { id: productId, quantity: 1 })
                 return [
                     ...state,
                     { id: productId, quantity: 1 }
