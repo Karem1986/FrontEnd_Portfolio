@@ -2,7 +2,7 @@ import React, { useState } from "react"
 
 export default function ItemComponent(props) {
     //Shoppingcart-number, total, delete and total price
-    const [amount, setAmount] = useState(1) //lift it to redux state
+    const [amount, setAmount] = useState(1) //lift it to redux state to show total price of ALL products in shopping cart.
     const [total, setTotal] = useState(0)
     function onChange(e) {
         setAmount(e.target.value)

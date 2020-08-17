@@ -4,6 +4,7 @@ import { useSelector } from "react-redux"
 import { useQuery, gql } from "@apollo/client"
 import { useParams } from "react-router-dom"
 import ItemComponent from "./ItemComponent"
+import { quantityProducts } from "../StoreRedux/QuantityProducts/actions"
 
 //multiples ids in backend
 //use it here in the query
@@ -24,6 +25,12 @@ const FIND_BY_ID = gql`
 `
 
 export default function ShoppingCart() {
+    const dispatch = useDispatch()
+    //Storing the quantity of products in the Redux store-->DISPATCH THE ACTION HERE:
+    useEffect(() => {
+        dispatch(quantityProducts)
+    }, [dispatch])
+
     const { id: containsIds } = useParams()
     console.log("testing params:", containsIds)
     const shoppingCart = useSelector(selectShoppingCart)
