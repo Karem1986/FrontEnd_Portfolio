@@ -40,16 +40,17 @@ export default function ShoppingCart() {
     if (error) return <p>ERROR</p>
     if (!data) return <p>Not found</p>
 
-    //For loop here:
-    let totalPrice = 0;
-for (let product of data.arrayProducts) {
-  // find out: how many of these do you want to buy?
-  // (you'll have to check the `shoppingCart` array for that)
-
-  const quantity // <-- you need to calculate
-  const priceForLine = product.price * quantity;
-  totalPrice += priceForLine;
-}
+    //Once the data has arrived, calculate the TOTAL amount for all products:
+    let totalPrice = 0
+    for (let index in data.arrayProducts) {
+        // find out: how many of these do you want to buy?
+        // (you'll have to check the `shoppingCart` array for that)
+        const product = data.arrayProducts[index]
+        const idandQuantity = shoppingCart.find(({ id }) => id === product.id) // <-- you need to calculate
+        console.log("test idandquantity", idandQuantity)
+        const priceForLine = product.price * idandQuantity.quantity
+        totalPrice += priceForLine
+    }
 
     return (
         <div>
@@ -64,11 +65,9 @@ for (let product of data.arrayProducts) {
                     />
                 )
             })}
-            {/* <h4>Total: {total} </h4> */}
+
             <div>
-                <h5>
-                    Total All products: {quantityandTotalAmount * props.price}
-                </h5>
+                <h5>Total All products: {totalPrice}</h5>
             </div>
         </div>
     )
