@@ -1,10 +1,9 @@
-import React, { useState } from "react"
-import { selectShoppingCart } from "../StoreRedux/selector"
+import React, { useEffect } from "react"
 import { useSelector } from "react-redux"
+import { selectShoppingCart } from "../StoreRedux/selector"
 import { useQuery, gql } from "@apollo/client"
 import { useParams } from "react-router-dom"
 import ItemComponent from "./ItemComponent"
-import { quantityProducts } from "../StoreRedux/QuantityProducts/actions"
 
 //multiples ids in backend
 //use it here in the query
@@ -25,12 +24,6 @@ const FIND_BY_ID = gql`
 `
 
 export default function ShoppingCart() {
-    const dispatch = useDispatch()
-    //Storing the quantity of products in the Redux store-->DISPATCH THE ACTION HERE:
-    useEffect(() => {
-        dispatch(quantityProducts)
-    }, [dispatch])
-
     const { id: containsIds } = useParams()
     console.log("testing params:", containsIds)
     const shoppingCart = useSelector(selectShoppingCart)
@@ -47,11 +40,23 @@ export default function ShoppingCart() {
     if (error) return <p>ERROR</p>
     if (!data) return <p>Not found</p>
 
+    //For loop here:
+    let totalPrice = 0;
+for (let product of data.arrayProducts) {
+  // find out: how many of these do you want to buy?
+  // (you'll have to check the `shoppingCart` array for that)
+
+  const quantity // <-- you need to calculate
+  const priceForLine = product.price * quantity;
+  totalPrice += priceForLine;
+}
+
     return (
         <div>
             {data.arrayProducts.map((item, key) => {
                 return (
                     <ItemComponent
+                        id={item.id}
                         name={item.name}
                         imageUrl={item.imageUrl}
                         price={item.price}
@@ -60,6 +65,11 @@ export default function ShoppingCart() {
                 )
             })}
             {/* <h4>Total: {total} </h4> */}
+            <div>
+                <h5>
+                    Total All products: {quantityandTotalAmount * props.price}
+                </h5>
+            </div>
         </div>
     )
 }

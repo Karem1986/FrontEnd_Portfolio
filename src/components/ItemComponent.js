@@ -1,14 +1,24 @@
 import React, { useState } from "react"
+import { Shoppingcard } from "../StoreRedux/actions"
+import { selectShoppingCart } from "../StoreRedux/selector"
+import { useDispatch, useSelector } from "react-redux"
 
 export default function ItemComponent(props) {
+    const dispatch = useDispatch()
+
     //Shoppingcart-number, total, delete and total price
     const [amount, setAmount] = useState(1) //lift it to redux state to show total price of ALL products in shopping cart.
     const [total, setTotal] = useState(0)
-    function onChange(e) {
+
+    console.log("itemComponent", props)
+    //We want to trigger the action of increasing quantity when a customer
+    //clicks on the select amount option
+    function onChange(e, productId) {
+        console.log("what is e", e, productId)
+        dispatch(Shoppingcard(productId)) //lifting state
         setAmount(e.target.value)
         setTotal(total + e.target.value)
     }
-    console.log("itemComponent", props)
 
     return (
         <>
@@ -61,7 +71,7 @@ export default function ItemComponent(props) {
             <form action="amount-product">
                 <label for="quantity">Number:</label>
                 <input
-                    onChange={onChange}
+                    onChange={(e) => onChange(e, props.id)}
                     value={amount}
                     type="number"
                     id="quantity"
