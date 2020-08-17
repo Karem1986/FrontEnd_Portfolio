@@ -3,6 +3,7 @@ import { selectShoppingCart } from "../StoreRedux/selector"
 import { useSelector } from "react-redux"
 import { useQuery, gql } from "@apollo/client"
 import { useParams } from "react-router-dom"
+import ItemComponent from "./ItemComponent"
 
 //multiples ids in backend
 //use it here in the query
@@ -23,14 +24,6 @@ const FIND_BY_ID = gql`
 `
 
 export default function ShoppingCart() {
-    //Shoppingcart-number, total, delete and total price
-    const [amount, setAmount] = useState(1)
-    const price = 10
-    const [total, setTotal] = useState(0)
-    function onChange(e) {
-        setAmount(e.target.value)
-        setTotal(e.target.value)
-    }
     const { id: containsIds } = useParams()
     console.log("testing params:", containsIds)
     const shoppingCart = useSelector(selectShoppingCart)
@@ -51,70 +44,15 @@ export default function ShoppingCart() {
         <div>
             {data.arrayProducts.map((item, key) => {
                 return (
-                    <>
-                        <div
-                            style={{
-                                display: "flex",
-                                justifyContent: "space-around",
-                                marginTop: "40",
-                            }}
-                        >
-                            <div key={item.id}>
-                                <h3
-                                    style={{
-                                        display: "flex",
-                                        justifyContent: "space-around",
-                                        margin: "40px",
-                                    }}
-                                >
-                                    {" "}
-                                    Your Shopping Cart: {item.name}
-                                    <img
-                                        style={{ display: "inline" }}
-                                        width="500px"
-                                        className="single-image-product"
-                                        src={item.imageUrl}
-                                    />
-                                </h3>
-                            </div>
-
-                            <p style={{ width: "50%" }}>
-                                {data.arrayProducts[0].review.map((item) => {
-                                    return (
-                                        <div
-                                            key={item.id}
-                                            style={{
-                                                backgroundColor: "pink",
-                                                color: "black",
-                                                margin: "40px",
-                                            }}
-                                        >
-                                            {item.comment}
-                                        </div>
-                                    )
-                                })}
-                            </p>
-                        </div>
-
-                        <h5>Select the amount: </h5>
-
-                        <form action="amount-product">
-                            <label for="quantity">Number:</label>
-                            <input
-                                onChange={onChange}
-                                value={amount}
-                                type="number"
-                                id="quantity"
-                                name="quantity"
-                                min="1"
-                                max="100"
-                            />
-                        </form>
-                        <div>{data.arrayProducts[0].price * amount}</div>
-                    </>
+                    <ItemComponent
+                        name={item.name}
+                        imageUrl={item.imageUrl}
+                        price={item.price}
+                        review={item.review}
+                    />
                 )
             })}
-            <h4>Total: {total} </h4>
+            {/* <h4>Total: {total} </h4> */}
         </div>
     )
 }
