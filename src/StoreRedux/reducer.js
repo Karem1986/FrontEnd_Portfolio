@@ -8,8 +8,8 @@ export default function shoppingcartReducer(state = initialState, action) {
         case "ADD_SHOPPING_CARD": {
             //   first check if the productId already exists in the state
             //   state is an array so you can use one of the array methods
-            const productId = action.payload
-            const exists = state.find((product) => product.id === productId)
+            const productId = +action.payload
+            const exists = state.find((product) => product.id === productId) //+ makes sure that it will always be a number
 
             //   if the productId is doesn't exist in the array, we add the { id, quantity } object
             //   if it already exists, we need to update it with the new quantity
