@@ -12,6 +12,7 @@ import SignUp from "./pages/SIgnup"
 import Login from "./pages/Login"
 import UserContext from "../src/Context/UserContext"
 import MessageChat from "../src/components/MessageChat/index"
+import CheckoutForm from "./pages/Stripe/CheckoutForm"
 
 const client = new ApolloClient({
     cache: new InMemoryCache(),
@@ -46,12 +47,15 @@ function App() {
                     <div className="App">
                         <NavBar />
                         <Switch>
+                            <Route path="/checkout" component={CheckoutForm} />
                             <Route path="/login" component={Login} />
                             <Route path="/signup" component={SignUp} />
+
                             <Route
                                 path="/shoppingcard"
                                 component={ShoppingCart}
                             />
+
                             <Route
                                 path="/productpage/:id?"
                                 component={Productdetail}

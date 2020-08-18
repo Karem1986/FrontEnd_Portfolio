@@ -1,9 +1,10 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { useSelector } from "react-redux"
 import { selectShoppingCart } from "../StoreRedux/selector"
 import { useQuery, gql } from "@apollo/client"
 import { useParams } from "react-router-dom"
 import ItemComponent from "./ItemComponent"
+import { Link } from "react-router-dom"
 
 //multiples ids in backend
 //use it here in the query
@@ -69,6 +70,10 @@ export default function ShoppingCart() {
             <div>
                 <h5>Total All products: {totalPrice}</h5>
             </div>
+
+            <Link to={`/checkout`}>
+                <button>Go to Payment page</button>
+            </Link>
         </div>
     )
 }
