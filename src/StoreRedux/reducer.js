@@ -38,6 +38,7 @@ export default function shoppingcartReducer(state = initialState, action) {
             // undefined: the first time i add it. if not we get the product
         }
         //Pending to remove a product
+        //Pending to remove a product
         case "REMOVE_PRODUCT": {
             const productId = +action.payload
             const exists = state.find((product) => product.id === productId) //+ makes sure that it will always be a number
