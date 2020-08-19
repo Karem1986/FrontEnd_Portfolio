@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { useQuery, gql } from "@apollo/client"
 import { Link } from "react-router-dom"
-
+import "../App.css"
 export default function Homepage() {
     //Sort by price- local state
     // set up an html select with some options: "price", "amounOfReviews"
@@ -61,8 +61,8 @@ export default function Homepage() {
                     <h2>
                         <select
                             style={{
-                                backgroundColor: "black",
-                                color: "white",
+                                backgroundColor: "white",
+                                color: "black",
                                 marginTop: 40,
                             }}
                             className="sorting-homepage"
@@ -87,7 +87,6 @@ export default function Homepage() {
                     {sortedData().map((item) => {
                         return (
                             <div key={item.id}>
-                                {item.name}
                                 <Link to={`/productpage/${item.id}`}>
                                     <img
                                         id={item.id}
@@ -97,6 +96,7 @@ export default function Homepage() {
                                         onClick={(e) => handleClick(e)}
                                     ></img>
                                 </Link>
+                                <p className="product-name"> {item.name}</p>
                             </div>
                         )
                     })}
