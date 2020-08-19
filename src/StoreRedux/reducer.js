@@ -3,7 +3,7 @@ const initialState = [
 ]
 
 export default function shoppingcartReducer(state = initialState, action) {
-    console.log("Shopping Reducer")
+    console.log("Shopping Reducer", action)
     switch (action.type) {
         case "ADD_SHOPPING_CARD": {
             //   first check if the productId already exists in the state
@@ -13,7 +13,7 @@ export default function shoppingcartReducer(state = initialState, action) {
 
             //   if the productId is doesn't exist in the array, we add the { id, quantity } object
             //   if it already exists, we need to update it with the new quantity
-            console.log(exists, productId)
+            console.log("action payload reducer", exists, productId)
 
             if (exists) {
                 // update with the new quantity.
