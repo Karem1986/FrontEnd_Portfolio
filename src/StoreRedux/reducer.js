@@ -3,7 +3,7 @@ const initialState = [
 ]
 
 export default function shoppingcartReducer(state = initialState, action) {
-    console.log("Shopping Reducer")
+    console.log("Shopping Reducer", action)
     switch (action.type) {
         case "ADD_SHOPPING_CARD": {
             //   first check if the productId already exists in the state

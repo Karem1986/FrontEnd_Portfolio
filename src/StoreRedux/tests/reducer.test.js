@@ -11,16 +11,17 @@ describe("shoppingcartReducer", () => {
         })
     })
 
-    describe("when given an ADD_SHOPING_CARD action type", () => {
+    describe("when given an ADD_SHOPPING_CARD action type", () => {
         test("returns a new state with the payload array included", () => {
-            const updatedArrayProducts = [{}, {}]
+            const productId = 1
             const action = {
                 type: ADD_SHOPPING_CARD,
-                payload: updatedArrayProducts,
+                payload: productId,
             }
             const newState = reducer(initialState, action)
-            expect(newState).toHaveLength(updatedArrayProducts.length)
-            expect(newState).toEqual(updatedArrayProducts)
+            console.log("newstate", newState)
+            expect(newState).toHaveLength(1) //at least 1 product added to cart
+            expect(newState).toEqual([{ id: productId, quantity: 1 }])
         })
     })
 })
