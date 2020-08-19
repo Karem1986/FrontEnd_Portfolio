@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import { useQuery, gql } from "@apollo/client"
 import { Link } from "react-router-dom"
-import MessageChat from "../components/MessageChat/index"
 
 export default function Homepage() {
     //Sort by price- local state
@@ -103,7 +102,6 @@ export default function Homepage() {
                     })}
                 </div>
             </div>
-            <MessageChat />
         </div>
     )
 }

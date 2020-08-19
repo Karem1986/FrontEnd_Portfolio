@@ -10,7 +10,7 @@
 
 .navbar {
     background-color: black;
-    height: 285px;
+    height: 270px;
 }
 .h1-homepage {
     color: white;
@@ -36,50 +36,48 @@ a:active {
     color: white;
 }
 
-/* SHOPPING CART */
-
-/* .container-products {
-    max-width: 900px;
-    justify-content: space-around;
-    margin: 0 auto;
-    margin-top: 50px;
-}
-
-.product-header {
-    width: 150%;
-    max-width: 650px;
+/*Contact page*/
+.contact-wrapper {
     display: flex;
-    justify-content: flex-start;
-    border-bottom: 4px solid lightgray;
-    margin: 0 auto;
+    width: 100%;
+    justify-content: center;
 }
-
-.product-title {
-    width: 30%;
-    border-bottom: 1px solid lightgray;
-    display: flex;
-    align-items: center;
+.contact-container {
+    margin-top: 36px;
+    width: 40%;
+    background-color: white;
 }
-
-.price {
-    width: 30%;
-    border-bottom: 1px solid lightgray;
-    display: flex;
-    align-items: center;
+.contact-header {
+    font-size: 72px;
+    text-align: center;
 }
-
-.quantity {
-    width: 15%;
-    border-bottom: 1px solid lightgray;
-    display: flex;
-    align-items: center;
+.contact-input {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    height: 50px;
 }
-
-.total {
-    width: 45%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px solid lightgray;
-} */
+.contact-form {
+    margin-top: 40px;
+}
+.contact-textarea {
+    width: 100%;
+    border-radius: 12px;
+    height: 200px;
+}
+.contact-select {
+    height: 50px;
+    background: white;
+    width: 100%;
+    margin-bottom: 30px;
+    border-radius: 12px;
+}
+.contact-submit {
+    height: 50px;
+    border-radius: 12px;
+    width: 60%;
+    display: block;
+    margin: 25px auto;
+    background-color: turquoise;
+    color: white;
+}

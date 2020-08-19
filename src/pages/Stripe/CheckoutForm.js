@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { useQuery, gql, useMutation } from "@apollo/client"
+import { gql, useMutation } from "@apollo/client"
 
 import { loadStripe } from "@stripe/stripe-js"
 
@@ -108,7 +108,15 @@ function CheckoutForm() {
 
                 <CardElement options={CARD_ELEMENT_OPTIONS} />
 
-                <button className="button" style={{ display: "flex" }}>
+                <button
+                    className="button"
+                    style={{
+                        display: "flex",
+                        margin: "20px",
+                        backgroundColor: "turquoise",
+                        borderRadius: "20px",
+                    }}
+                >
                     Submit
                 </button>
             </form>

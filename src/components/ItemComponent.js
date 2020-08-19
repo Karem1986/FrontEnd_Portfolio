@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import { Shoppingcard } from "../StoreRedux/actions"
-import { selectShoppingCart } from "../StoreRedux/selector"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 
 export default function ItemComponent(props) {
     const dispatch = useDispatch()
@@ -43,6 +42,7 @@ export default function ItemComponent(props) {
                             style={{ display: "inline" }}
                             width="500px"
                             className="single-image-product"
+                            alt="product"
                             src={props.imageUrl}
                         />
                     </h3>

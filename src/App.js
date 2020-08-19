@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { ApolloProvider } from "@apollo/client"
 import { ApolloClient, InMemoryCache } from "@apollo/client"
 import { HttpLink } from "apollo-link-http"
@@ -10,8 +10,8 @@ import Productdetail from "./pages/Productdetail"
 import ShoppingCart from "./components/ShoppingCart"
 import SignUp from "./pages/SIgnup"
 import Login from "./pages/Login"
+import Contact from "./pages/Contact"
 import UserContext from "../src/Context/UserContext"
-import MessageChat from "../src/components/MessageChat/index"
 import CheckoutForm from "./pages/Stripe/CheckoutForm"
 
 const client = new ApolloClient({
@@ -38,6 +38,8 @@ const client = new ApolloClient({
 function App() {
     const [isLoggedIn, setUpLoggingatTopLevel] = useState(false)
 
+    useEffect(() => {}, [])
+
     return (
         <ApolloProvider client={client}>
             <UserContext.Provider
@@ -45,11 +47,13 @@ function App() {
             >
                 <Router>
                     <div className="App">
+                        <h1>isuserLoggedIn:{`${isLoggedIn}`}</h1>
                         <NavBar />
                         <Switch>
                             <Route path="/checkout" component={CheckoutForm} />
                             <Route path="/login" component={Login} />
                             <Route path="/signup" component={SignUp} />
+                            <Route path="/contact" component={Contact} />
 
                             <Route
                                 path="/shoppingcard"
