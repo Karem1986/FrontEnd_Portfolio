@@ -13,6 +13,7 @@ import Login from "./pages/Login"
 import Contact from "./pages/Contact"
 import UserContext from "../src/Context/UserContext"
 import CheckoutForm from "./pages/Stripe/CheckoutForm"
+import TokenValidation from "../src/components/TokenValidation"
 
 const client = new ApolloClient({
     cache: new InMemoryCache(),
@@ -38,13 +39,12 @@ const client = new ApolloClient({
 function App() {
     const [isLoggedIn, setUpLoggingatTopLevel] = useState(false)
 
-    useEffect(() => {}, [])
-
     return (
         <ApolloProvider client={client}>
             <UserContext.Provider
                 value={{ isLoggedIn: isLoggedIn, setUpLoggingatTopLevel }}
             >
+                <TokenValidation />
                 <Router>
                     <div className="App">
                         {/* <h1>isuserLoggedIn:{`${isLoggedIn}`}</h1> */}
