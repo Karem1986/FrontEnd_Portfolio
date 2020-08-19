@@ -47,7 +47,7 @@ function App() {
             >
                 <Router>
                     <div className="App">
-                        <h1>isuserLoggedIn:{`${isLoggedIn}`}</h1>
+                        {/* <h1>isuserLoggedIn:{`${isLoggedIn}`}</h1> */}
                         <NavBar />
                         <Switch>
                             <Route path="/checkout" component={CheckoutForm} />
