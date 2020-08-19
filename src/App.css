@@ -6,6 +6,7 @@
     grid-template-rows: auto 1fr auto;
     flex-wrap: wrap;
     padding: 30px;
+    margin-bottom: 0px;
 }
 
 .navbar {
@@ -37,6 +38,11 @@ a:active {
 }
 
 /*Contact page*/
+.success-contact {
+    text-align: center;
+    background-color: green;
+    color: white;
+}
 .contact-wrapper {
     display: flex;
     width: 100%;
@@ -78,6 +84,11 @@ a:active {
     width: 60%;
     display: block;
     margin: 25px auto;
-    background-color: turquoise;
+    background-color: black;
     color: white;
+}
+
+/*Homepage*/
+.product-name {
+    text-align: center;
 }

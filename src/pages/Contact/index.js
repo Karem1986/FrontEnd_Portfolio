@@ -23,7 +23,6 @@ export default function Contact() {
 
     return (
         <div className="contact-wrapper">
-            <p>{showmessage}</p>
             <div className="contact-container">
                 <h1 className="contact-header">Contact us</h1>
 
@@ -55,6 +54,7 @@ export default function Contact() {
                         Submit
                     </button>
                 </form>
+                <p className="success-contact">{showmessage}</p>
             </div>
         </div>
     )
