@@ -66,9 +66,9 @@ export default function ItemComponent(props) {
                 </p>
             </div>
 
-            <h5>Select the amount: </h5>
+            <h5 className="h5">Select the amount: </h5>
 
-            <form action="amount-product">
+            <form action="amount-product" className="shoppingcart-form">
                 <label for="quantity">Number:</label>
                 <input
                     onChange={(e) => onChange(e, props.id)}
@@ -80,7 +80,12 @@ export default function ItemComponent(props) {
                     max="100"
                 />
             </form>
-            <div>Total:{props.price * amount}</div>
+            <div className="total-allproducts">
+                <h3 className="totalsingleproduct">
+                    {" "}
+                    Total: {props.price * amount}
+                </h3>
+            </div>
         </>
     )
 }

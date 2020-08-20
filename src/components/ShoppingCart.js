@@ -70,12 +70,14 @@ export default function ShoppingCart() {
                     )
                 })}
 
-                <div>
+                <div className="totalAll">
                     <h5>Total All products: {totalPrice}</h5>
                 </div>
 
                 <Link to={`/checkout`}>
-                    <button>Go to Payment page</button>
+                    <button className="gotoPaymentButton">
+                        Go to Payment page
+                    </button>
                 </Link>
             </div>
         )

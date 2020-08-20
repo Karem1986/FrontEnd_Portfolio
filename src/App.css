@@ -17,6 +17,9 @@
     color: white;
     margin-left: 20px;
 }
+.product-name {
+    text-align: center;
+}
 
 a:link {
     color: white;
@@ -88,7 +91,27 @@ a:active {
     color: white;
 }
 
-/*Homepage*/
-.product-name {
-    text-align: center;
+/*Shopping cart*/
+.h5 {
+    margin: 30px;
+}
+.shoppingcart-form {
+    margin: 30px;
+}
+.total-allproducts {
+    margin: 30px;
+}
+.totalAll {
+    margin: 30px;
+    background-color: green;
+}
+
+.gotoPaymentButton {
+    height: 50px;
+    border-radius: 12px;
+    width: 35%;
+    display: block;
+    margin: 25px auto;
+    background-color: black;
+    color: white;
 }
