@@ -27,9 +27,11 @@ function CheckoutForm() {
     const elements = useElements()
     const [name, setName] = useState("")
     const [address, setAddress] = useState("")
+    const [showmessage, setSuccess] = useState("")
     //1.mutation here for payment: get back my client secret
     const [payment] = useMutation(firstPaymentCall)
     console.log("firstPaymentCall", payment)
+
     async function onSubmit(event) {
         event.preventDefault()
         console.log(`
@@ -56,6 +58,8 @@ function CheckoutForm() {
             }
         )
         console.log("result", result)
+
+        setSuccess("Payment succeded")
     }
 
     function onChange(event, set_Function) {
@@ -119,6 +123,7 @@ function CheckoutForm() {
                 >
                     Submit
                 </button>
+                <p className="success-contact">{showmessage}</p>
             </form>
         </div>
     )

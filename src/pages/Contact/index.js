@@ -17,6 +17,7 @@ export default function Contact() {
 
         setSuccess("Your message was submitted successfully")
     }
+
     function onChange(event, set_Function) {
         set_Function(event.target.value)
     }
