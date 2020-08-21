@@ -101,11 +101,13 @@ function CheckoutForm() {
                 </h2>
                 <input
                     className="input"
+                    required
                     onChange={(event) => onChange(event, setName)}
                 />
                 <p>Name</p>
                 <input
                     className="input"
+                    required
                     onChange={(event) => onChange(event, setAddress)}
                 />
                 <p>Address</p>
