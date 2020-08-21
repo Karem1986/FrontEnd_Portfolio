@@ -26,7 +26,7 @@ const FIND_BY_ID = gql`
 `
 
 export default function ShoppingCart() {
-    const { isLoggedIn, setUpLoggingatTopLevel } = useContext(UserContext)
+    // const { isLoggedIn, setUpLoggingatTopLevel } = useContext(UserContext)
     const { id: containsIds } = useParams()
     console.log("testing params:", containsIds)
     const shoppingCart = useSelector(selectShoppingCart)
@@ -55,40 +55,29 @@ export default function ShoppingCart() {
         totalPrice += priceForLine
     }
 
-    if (isLoggedIn) {
-        return (
-            <div>
-                {data.arrayProducts.map((item, key) => {
-                    return (
-                        <ItemComponent
-                            id={item.id}
-                            name={item.name}
-                            imageUrl={item.imageUrl}
-                            price={item.price}
-                            review={item.review}
-                        />
-                    )
-                })}
+    return (
+        <div>
+            {data.arrayProducts.map((item, key) => {
+                return (
+                    <ItemComponent
+                        id={item.id}
+                        name={item.name}
+                        imageUrl={item.imageUrl}
+                        price={item.price}
+                        review={item.review}
+                    />
+                )
+            })}
 
-                <div className="totalAll">
-                    <h5>Total All products: {totalPrice}</h5>
-                </div>
+            <div className="totalAll">
+                <h5>Total All products: {totalPrice}</h5>
+            </div>
 
-                <Link to={`/checkout`}>
-                    <button className="gotoPaymentButton">
-                        Go to Payment page
-                    </button>
-                </Link>
-            </div>
-        )
-    } else {
-        return (
-            <div>
-                <h3>You need to be logged in!</h3>
-                <Link to={`/login`}>
-                    <button>Go to Login</button>
-                </Link>
-            </div>
-        )
-    }
+            <Link to={`/checkout`}>
+                <button className="gotoPaymentButton">
+                    Go to Payment page
+                </button>
+            </Link>
+        </div>
+    )
 }

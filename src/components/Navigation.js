@@ -13,7 +13,7 @@ export default function NavBar() {
             <h1 className="h1-homepage">
                 POLshop.com: where your dreams come true!
             </h1>
-            <NavLink to="/">Home </NavLink>
+            <NavLink to="/">Home</NavLink>
             <NavLink to="/signup">Signup </NavLink>
             <NavLink to="/login">Login </NavLink>
             <NavLink to="/contact">Contact </NavLink>

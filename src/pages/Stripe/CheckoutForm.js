@@ -1,4 +1,7 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
+import UserContext from "../../Context/UserContext"
+import { Link } from "react-router-dom"
+
 import { gql, useMutation } from "@apollo/client"
 
 import { loadStripe } from "@stripe/stripe-js"
@@ -11,6 +14,7 @@ import {
 } from "@stripe/react-stripe-js"
 
 import "./CheckoutForm.css"
+
 const firstPaymentCall = gql`
     mutation createpayment($amount: Int) {
         createpayment(amount: $amount) {
@@ -23,6 +27,7 @@ const stripePromise = loadStripe(
     "pk_test_51HHCvXLtQj1lsGQLqH9LEEQa8w7UoN4yFXvJHaGfBOFbWbUoF3p4Ff9yI0dvHp7SF9rhLdXArbP1TougSt13csHU00VAg5ufqa"
 )
 function CheckoutForm() {
+    const { isLoggedIn, setUpLoggingatTopLevel } = useContext(UserContext)
     const stripe = useStripe()
     const elements = useElements()
     const [name, setName] = useState("")
@@ -83,52 +88,63 @@ function CheckoutForm() {
         },
     }
 
-    return (
-        <div className="form">
-            <form
-                onSubmit={onSubmit}
-                style={{
-                    color: "white",
-                    fontFamily: "Helvetica, sans-serif",
-                    fontSize: "20px",
-                    backgroundColor: "black",
-                    margin: "100px",
-                    padding: "50px",
-                }}
-            >
-                <h2 style={{ color: "white" }}>
-                    Please complete your payment information below:
-                </h2>
-                <input
-                    className="input"
-                    required
-                    onChange={(event) => onChange(event, setName)}
-                />
-                <p>Name</p>
-                <input
-                    className="input"
-                    required
-                    onChange={(event) => onChange(event, setAddress)}
-                />
-                <p>Address</p>
-
-                <CardElement options={CARD_ELEMENT_OPTIONS} />
-
-                <button
-                    className="button"
+    if (isLoggedIn) {
+        return (
+            <div className="form">
+                <form
+                    onSubmit={onSubmit}
                     style={{
-                        display: "flex",
-                        margin: "20px",
-                        backgroundColor: "turquoise",
-                        borderRadius: "20px",
+                        color: "white",
+                        fontFamily: "Helvetica, sans-serif",
+                        fontSize: "20px",
+                        backgroundColor: "black",
+                        margin: "100px",
+                        padding: "50px",
                     }}
                 >
-                    Submit
-                </button>
-                <p className="success-contact">{showmessage}</p>
-            </form>
-        </div>
-    )
+                    <h2 style={{ color: "white" }}>
+                        Please complete your payment information below:
+                    </h2>
+                    <input
+                        className="input"
+                        required
+                        onChange={(event) => onChange(event, setName)}
+                    />
+                    <p>Name</p>
+                    <input
+                        className="input"
+                        required
+                        onChange={(event) => onChange(event, setAddress)}
+                    />
+                    <p>Address</p>
+
+                    <CardElement options={CARD_ELEMENT_OPTIONS} />
+
+                    <button
+                        className="button"
+                        style={{
+                            display: "flex",
+                            margin: "20px",
+                            backgroundColor: "turquoise",
+                            borderRadius: "20px",
+                        }}
+                    >
+                        Submit
+                    </button>
+                    <p className="success-contact">{showmessage}</p>
+                </form>
+            </div>
+        )
+    } else {
+        return (
+            <div>
+                <h3>You need to be logged in!</h3>
+                <Link to={`/login`}>
+                    <button>Go to Login</button>
+                </Link>
+            </div>
+        )
+    }
 }
 
 export default () => (
