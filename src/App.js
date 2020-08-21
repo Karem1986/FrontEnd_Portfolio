@@ -19,7 +19,7 @@ const client = new ApolloClient({
     cache: new InMemoryCache(),
     link: new HttpLink({
         headers: { authorization: localStorage.getItem("token") },
-        uri: "http://localhost:4000/graphql",
+        uri: "https://git.heroku.com/polwebshop.git",
     }),
 })
 
