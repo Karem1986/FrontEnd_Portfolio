@@ -103,6 +103,17 @@ export default function Homepage() {
                     })}
                 </div>
             </div>
+
+            <div className="footer-homepage">
+                <footer>
+                    <p>Copyright @ POLshop-2020</p>
+
+                    <a href="https://twitter.com/Karemortiz1986">
+                        {" "}
+                        <p> Follow for offers on Twitter</p>
+                    </a>
+                </footer>
+            </div>
         </div>
     )
 }
