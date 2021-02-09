@@ -26,9 +26,7 @@ export default function shoppingcartReducer(state = initialState, action) {
                         return item //nothings happens
                     }
                 })
-                // you need to return at the end something.
-                // exists.quantity += 1
-                // exists.id = productId
+
                 console.log("test", updatedShoppingCart)
                 return updatedShoppingCart
             } else {
@@ -37,6 +35,7 @@ export default function shoppingcartReducer(state = initialState, action) {
             }
             // undefined: the first time i add it. if not we get the product
         }
+
         //Pending to remove a product
 
         default: {

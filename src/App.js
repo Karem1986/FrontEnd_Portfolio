@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import { ApolloProvider } from "@apollo/client"
 import { ApolloClient, InMemoryCache } from "@apollo/client"
 import { HttpLink } from "apollo-link-http"
@@ -23,18 +23,6 @@ const client = new ApolloClient({
     }),
 })
 
-//testing our Apollo setup:
-// client
-//   .query({
-//     query: gql`
-//       query {
-//        allCategories {
-//          type
-//        }
-//       }
-//     `
-//   })
-//   .then(result => console.log(result));
 
 function App() {
     const [isLoggedIn, setUpLoggingatTopLevel] = useState(false)
@@ -47,7 +35,6 @@ function App() {
                 <TokenValidation />
                 <Router>
                     <div className="App">
-                        {/* <h1>isuserLoggedIn:{`${isLoggedIn}`}</h1> */}
                         <NavBar />
                         <Switch>
                             <Route path="/checkout" component={CheckoutForm} />

@@ -15,7 +15,7 @@ export default function Homepage() {
 
     console.log(sortBy) // price || amountOfReviews
 
-    const { data, loading, error } = useQuery(gql`
+    const { data, error } = useQuery(gql`
         query {
             allProducts {
                 id
@@ -30,7 +30,7 @@ export default function Homepage() {
         }
     `)
 
-    if (loading) return <h2>Hello</h2>
+    // if (loading) return <h2>Hello</h2>
     if (error) return <p>ERROR</p>
     if (!data) return <p>Not found</p>
 
