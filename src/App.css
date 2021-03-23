@@ -1,38 +1,130 @@
-.App {
-  text-align: center;
+.products-homepage {
+    width: 350px;
+    height: 400px;
+    margin: 50px;
+    display: inline-block;
+    grid-template-rows: auto 1fr auto;
+    flex-wrap: wrap;
+    padding: 30px;
+    margin-bottom: 0px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.navbar {
+    background-color: black;
+    height: 270px;
+}
+.h1-homepage {
+    color: white;
+    margin-left: 20px;
+}
+.product-name {
+    text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+a:link {
+    color: white;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* visited link */
+a:visited {
+    color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* mouse over link */
+a:hover {
+    color: hotpink;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* selected link */
+a:active {
+    color: white;
+}
+
+/*Contact page*/
+.success-contact {
+    text-align: center;
+    background-color: green;
+    color: white;
+}
+.contact-wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.contact-container {
+    margin-top: 36px;
+    width: 40%;
+    background-color: white;
+}
+.contact-header {
+    font-size: 72px;
+    text-align: center;
+}
+.contact-input {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    height: 50px;
+}
+.contact-form {
+    margin-top: 40px;
+}
+.contact-textarea {
+    width: 100%;
+    border-radius: 12px;
+    height: 200px;
+}
+.contact-select {
+    height: 50px;
+    background: white;
+    width: 100%;
+    margin-bottom: 30px;
+    border-radius: 12px;
+}
+.contact-submit {
+    height: 50px;
+    border-radius: 12px;
+    width: 60%;
+    display: block;
+    margin: 25px auto;
+    background-color: black;
+    color: white;
+}
+
+/*Shopping cart*/
+.h5 {
+    margin: 30px;
+}
+.shoppingcart-form {
+    margin: 30px;
+}
+.total-allproducts {
+    margin: 30px;
+}
+.totalAll {
+    margin: 30px;
+    background-color: green;
+}
+
+.gotoPaymentButton {
+    height: 50px;
+    border-radius: 12px;
+    width: 35%;
+    display: block;
+    margin: 25px auto;
+    background-color: black;
+    color: white;
+}
+
+/*footer*/
+
+.footer-homepage a {
+    color: white;
+}
+.footer-homepage {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
