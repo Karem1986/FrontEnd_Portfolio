@@ -15,7 +15,7 @@ export default function Homepage() {
 
     console.log(sortBy) // price || amountOfReviews
 
-    const { data, error } = useQuery(gql`
+    const {loading, data, error } = useQuery(gql`
         query {
             allProducts {
                 id
