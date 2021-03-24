@@ -30,9 +30,9 @@ export default function Homepage() {
         }
     `)
 
-    if (loading) return <h2>Hello</h2>
-    if (error) return <p>ERROR</p>
-    if (!data) return <p>Not found</p>
+    // if (loading) return <h2>Hello</h2>
+    // if (error) return <p>ERROR</p>
+    // if (!data) return <p>Not found</p>
 
     function sortedData() {
         if (sortBy === "price") {
