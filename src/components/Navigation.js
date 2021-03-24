@@ -8,10 +8,10 @@ export default function NavBar() {
             <img
                 src={logo}
                 alt="Polshop"
-                style={{ width: 250, height: 200, display: "inline" }}
+                style={{ width: 190, height: 180, display: "inline", padding: '40px' }}
             ></img>
             <h1 className="h1-homepage">
-                POLshop.com: where your dreams come true!
+                POLshop: treat yourself!
             </h1>
             <NavLink to="/">Home</NavLink>
             <NavLink to="/signup">Signup </NavLink>
@@ -20,7 +20,7 @@ export default function NavBar() {
             <NavLink to="/shoppingcard">
                 <img
                     src={shoppingicon}
-                    style={{ width: 85, height: 85, display: "inline" }}
+                    style={{ width: 65, height: 75, display: "inline" }}
                 ></img>{" "}
             </NavLink>
         </div>

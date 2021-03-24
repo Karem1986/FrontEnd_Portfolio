@@ -30,9 +30,9 @@ export default function Homepage() {
         }
     `)
 
-    // if (loading) return <h2>Hello</h2>
-    // if (error) return <p>ERROR</p>
-    // if (!data) return <p>Not found</p>
+    if (loading) return <h2>Hello</h2>
+    if (error) return <p>ERROR</p>
+    if (!data) return <p>Not found</p>
 
     function sortedData() {
         if (sortBy === "price") {
@@ -64,11 +64,11 @@ export default function Homepage() {
                             style={{
                                 backgroundColor: "white",
                                 color: "black",
-                                marginTop: 40,
+                                margin: 40,
                             }}
                             className="sorting-homepage"
                             placeholder="sortybypriceandreviews"
-                            value={sortBy}
+                            value={""}
                             onChange={(e) => setSortBy(e.target.value)}
                         >
                             <option value="">Sort by price and reviews</option>
