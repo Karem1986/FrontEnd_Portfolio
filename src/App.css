@@ -1,3 +1,7 @@
+#container {
+    background-color: rgb(196, 54, 196);
+}
+
 .products-homepage {
     width: 500px;
     height: 500px;
@@ -10,7 +14,7 @@
 }
 
 .navbar {
-    background-color: #6610f2;
+    background-color: #4ed8cc;
     height: 180px;
 }
 .h1-homepage {
@@ -119,7 +123,8 @@ a:active {
 /*footer*/
 
 .footer-homepage a {
-    color: white;
+    color: 'white';
+   
 }
 .footer-homepage {
     background-color: black;

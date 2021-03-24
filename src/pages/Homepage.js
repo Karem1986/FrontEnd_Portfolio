@@ -56,7 +56,7 @@ export default function Homepage() {
     }
 
     return (
-        <div>
+        <div id="container">
             <div style={{ display: "flex" }}>
                 <div>
                     <h2>
@@ -104,13 +104,15 @@ export default function Homepage() {
                 </div>
             </div>
 
-            <div className="footer-homepage">
+            <div className="footer-homepage"
+            style={{color: "white", backgroundColor:'#4ed8cc'}}
+            >
                 <footer>
-                    <p>Copyright @ POLshop-2020</p>
+                    <p>Copyright @POLshop 2021</p>
 
                     <a href="https://twitter.com/Karemortiz1986">
                         {" "}
-                        <p> Follow for offers on Twitter</p>
+                        <p> Follow us on Twitter</p>
                     </a>
                 </footer>
             </div>

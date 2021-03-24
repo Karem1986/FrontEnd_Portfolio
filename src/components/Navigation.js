@@ -20,7 +20,7 @@ export default function NavBar() {
             <NavLink to="/shoppingcard">
                 <img
                     src={shoppingicon}
-                    style={{ width: 65, height: 75, display: "inline" }}
+                    style={{ width: 75, height: 75, display: "inline" }}
                 ></img>{" "}
             </NavLink>
         </div>
