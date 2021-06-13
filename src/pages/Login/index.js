@@ -32,7 +32,7 @@ export default function Login() {
         //storage to persist the session:
         onCompleted({ login }) {
             localStorage.setItem("token", login.token)
-            console.log("what is login", login)
+      
             setUpLoggingatTopLevel(true) //it needs validation to make sure it comes back with the token
         },
     })
