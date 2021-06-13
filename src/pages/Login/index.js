@@ -46,7 +46,7 @@ export default function Login() {
         if (isLoggedIn) {
             history.push("/shoppingcard")
         }
-    }, [isLoggedIn]) //the useEffect checks this array for changes and will only run if there are changes, it will only run when the isLOgged changes from true to false and viceversa
+    }, [isLoggedIn, history]) //the useEffect checks this array for changes and will only run if there are changes, when the isLOgged changes from true to false and viceversa
 
     console.log("data", data)
     if (loading) return "Loading"
