@@ -74,7 +74,7 @@ export default function ShoppingCart() {
 
             <Link to={`/checkout`}>
                 <button className="gotoPaymentButton">
-                    Go to Payment page
+                    Go to Checkout 
                 </button>
             </Link>
         </div>

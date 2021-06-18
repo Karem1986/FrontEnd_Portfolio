@@ -17,7 +17,7 @@ export default function Login() {
 
     //Querying with useMutation hook from our apollo server backend
     const LOGIN_USER = gql`
-        mutation login($email: String, $password: String!) {
+        mutation login($email: String!, $password: String!) {
             login(email: $email, password: $password) {
                 user {
                     name
@@ -32,7 +32,7 @@ export default function Login() {
         //storage to persist the session:
         onCompleted({ login }) {
             localStorage.setItem("token", login.token)
-      
+            console.log("what is login", login)
             setUpLoggingatTopLevel(true) //it needs validation to make sure it comes back with the token
         },
     })
@@ -46,7 +46,7 @@ export default function Login() {
         if (isLoggedIn) {
             history.push("/shoppingcard")
         }
-    }, [isLoggedIn, history]) //the useEffect checks this array for changes and will only run if there are changes, when the isLOgged changes from true to false and viceversa
+    }, [isLoggedIn]) //the useEffect checks this array for changes and will only run if there are changes, it will only run when the isLOgged changes from true to false and viceversa
 
     console.log("data", data)
     if (loading) return "Loading"
