@@ -1,8 +1,7 @@
-import React, { useEffect, useContext } from "react"
+import { useEffect, useContext } from "react"
 import { gql, useMutation } from "@apollo/client"
 import UserContext from "../Context/UserContext"
 
-//glg mutation to validate users logged in access to shopping card
 
 const LOGGED_IN = gql`
     mutation isLoggedIn($token: String) {
@@ -17,7 +16,7 @@ export default function TokenValidation() {
         //storage to persist the session:
         onCompleted({ isLoggedIn: isTokenValid }) {
             console.log("is token valid", isTokenValid)
-            setUpLoggingatTopLevel(isTokenValid) //this will help to update the state in line 47
+            setUpLoggingatTopLevel(isTokenValid) 
         },
     })
 

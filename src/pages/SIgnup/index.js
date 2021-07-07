@@ -14,9 +14,9 @@ export default function SignUp() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [admin, setAdmin] = useState(false);
+    const [admin,] = useState(false);
 
-    //QUerying with useMutation hook from our apollo server backend 
+    //Querying with useMutation hook from our apollo server backend 
     const SIGNUP_USER = gql`
     mutation signup($email: String!, $password: String!, $admin: Boolean, $name: String!) {
       signup(email: $email, password: $password, admin: $admin, name: $name ) {

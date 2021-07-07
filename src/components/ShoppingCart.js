@@ -26,7 +26,6 @@ const FIND_BY_ID = gql`
 `
 
 export default function ShoppingCart() {
-    // const { isLoggedIn, setUpLoggingatTopLevel } = useContext(UserContext)
     const { id: containsIds } = useParams()
     console.log("testing params:", containsIds)
     const shoppingCart = useSelector(selectShoppingCart)
@@ -75,7 +74,7 @@ export default function ShoppingCart() {
 
             <Link to={`/checkout`}>
                 <button className="gotoPaymentButton">
-                    Go to Payment page
+                    Go to Checkout 
                 </button>
             </Link>
         </div>
